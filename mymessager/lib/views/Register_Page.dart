@@ -11,6 +11,11 @@ class RegisterPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("lib/res/images/register_background"),
+                fit: BoxFit.fill),
+          ),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(

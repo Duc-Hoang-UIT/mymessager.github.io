@@ -18,6 +18,11 @@ class LoginPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.white,
         body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("lib/res/images/login_background.jpg"),
+                fit: BoxFit.fill),
+          ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
             child: Column(
