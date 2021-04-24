@@ -67,6 +67,15 @@ class RegisterPage extends StatelessWidget {
                     CustomButton(
                       label: "Register",
                       iconData: Icons.person_add_alt,
+                      onPressed: () {
+                        _registerController.createAccount(
+                            _registerController
+                                .nameEditingController.value.text,
+                            _registerController
+                                .emailEditingController.value.text,
+                            _registerController
+                                .passwordEditingController.value.text);
+                      },
                     ),
                     CustomButton(
                       label: "Cancel",

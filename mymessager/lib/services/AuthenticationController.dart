@@ -15,7 +15,7 @@ class Authentication extends GetxController {
     _user.bindStream(_auth.authStateChanges());
   }
 
-  Future<void> createUser(String name, String email, String password) async {
+  Future<bool> createUser(String name, String email, String password) async {
     try {
       UserCredential _authResult = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
@@ -26,7 +26,7 @@ class Authentication extends GetxController {
       );
       if (await Database().createNewUser(userModel)) {
         Get.find<UserController>().userModel = userModel;
-        Get.back();
+        //Get.back();
       }
     } catch (e) {
       Get.snackbar(
@@ -34,7 +34,9 @@ class Authentication extends GetxController {
         e.toString(),
         snackPosition: SnackPosition.BOTTOM,
       );
+      return false;
     }
+    return true;
   }
 
   void login(String email, String password) async {
